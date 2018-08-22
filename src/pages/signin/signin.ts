@@ -5,6 +5,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup';
+import { ResetpasswordPage } from '../resetpassword/resetpassword';
 
 /**
  * Generated class for the SigninPage page.
@@ -36,6 +37,10 @@ export class SigninPage {
     this.navCtrl.setRoot(SignupPage);
   }
 
+  goToResetPassword(){
+    this.navCtrl.setRoot(ResetpasswordPage);
+  }
+
   SignIn() {
     if (this.formLogin.valid) {
       this.authProvider.signIn(this.user)
@@ -60,6 +65,10 @@ export class SigninPage {
             toast.present();
           } else if (error.code === 'auth/user-disabled') {
             toast.setMessage('Ingrese una Contraseña Válida');
+            toast.present();
+          }
+          else{
+            toast.setMessage('Valide Sus Credenciales');
             toast.present();
           }
 

@@ -32,6 +32,10 @@ export class AuthProvider {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
   }
 
+  resetPassword(email: string){
+    return this.angularFireAuth.auth.sendPasswordResetEmail(email);
+  }
+
   signOut() {
     return this.angularFireAuth.auth.signOut();
   }
